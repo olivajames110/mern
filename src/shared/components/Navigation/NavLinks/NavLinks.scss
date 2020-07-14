@@ -1,0 +1,36 @@
+.nav-links {
+	display: flex;
+	li {
+		margin: 10px;
+		a {
+			overflow: hidden;
+		}
+	}
+}
+
+.nav-link__active {
+	position: relative;
+	// background-color: white;
+	width: 0;
+	height: 0;
+	transition: 250ms;
+	// font-weight: bold;
+	text-shadow: 0 0 .8px #ffffff, 0 0 .8px #ffffff, 0 0 .8px #ffffff;
+
+	&:after {
+		content: '';
+		width: 100%;
+		height: 3px;
+		background-color: #ffffff;
+		border-radius: 35px;
+		position: absolute;
+		bottom: -5px;
+		left: 0;
+	}
+}
+
+// @media only screen and (max-width: 600px) {
+// 	.nav-links {
+// 		display: none;
+// 	}
+// }

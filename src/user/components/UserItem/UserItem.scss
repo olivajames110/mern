@@ -1,0 +1,35 @@
+.user-item {
+	// border: 1px solid #dddddd;
+	// padding: 10px;
+	// max-width: 300px;
+	// color: #333333;
+	// box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.123);
+	width: 100%;
+	max-width: 300px;
+	margin: 0 auto;
+	cursor: pointer;
+	img {
+		border: 2px solid white;
+	}
+	.user-item__content {
+		display: flex;
+		align-items: center;
+		background: white;
+		transition: 250ms ease;
+		&:hover {
+			background: black;
+			color: white;
+		}
+	}
+	.user-item__info {
+		padding: 0 15px;
+
+		h2 {
+			font-size: 20px;
+			margin-bottom: 5px;
+		}
+		h3 {
+			font-size: 16px;
+		}
+	}
+}

@@ -1,0 +1,77 @@
+.form-control {
+	position: relative;
+	margin: 1rem 0;
+	label {
+		font-size: 1.4em;
+		margin-bottom: 0.5rem;
+	}
+
+	input,
+	textarea {
+		border: 1px solid #c6c6c6;
+		padding: 5px;
+		border-radius: 2px;
+		width: 100%;
+		&:focus {
+			outline: none;
+			background: #ffffff;
+			border-color: #8026268c;
+		}
+	}
+
+	label,
+	input,
+	textarea {
+		display: block;
+	}
+
+	input,
+	textarea {
+	}
+}
+
+.form-control--invalid {
+	color: red;
+}
+
+// .form-control {
+//    margin: 1rem 0;
+//  }
+
+//  .form-control label,
+//  .form-control input,
+//  .form-control textarea {
+//    display: block;
+//  }
+
+//  .form-control label {
+//    font-weight: bold;
+//    margin-bottom: 0.5rem;
+//  }
+
+//  .form-control input,
+//  .form-control textarea {
+//    width: 100%;
+//    font: inherit;
+//    border: 1px solid #ccc;
+//    background: #f8f8f8;
+//    padding: 0.15rem 0.25rem;
+//  }
+
+//  .form-control input:focus,
+//  .form-control textarea:focus {
+//    outline: none;
+//    background: #ebebeb;
+//    border-color: #510077;
+//  }
+
+//  .form-control--invalid label,
+//  .form-control--invalid p {
+//    color: red;
+//  }
+
+//  .form-control--invalid input,
+//  .form-control--invalid textarea {
+//    border-color: red;
+//    background: #ffd1d1;
+//  }

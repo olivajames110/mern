@@ -1,0 +1,58 @@
+.modal {
+  position: fixed;
+  z-index: 100;
+  background: white;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  min-height: 500px;
+  width: 96%;
+  max-width: 800px;
+  height: 80%;
+  max-height: 570px;
+}
+
+.modal .modal__header {
+  width: 100%;
+  padding: 1rem 0.5rem;
+  background: #2a006e;
+  color: white;
+}
+
+.modal .modal__header h2 {
+  margin: 0.5rem;
+}
+
+.modal .modal__content {
+  padding: 1rem 0.5rem;
+}
+
+.modal .modal__footer {
+  padding: 1rem 0.5rem;
+}
+
+.fade-in-enter {
+  opacity: 0;
+}
+
+.fade-in-enter-active {
+  opacity: 1;
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  transition: opacity 300ms, transform 300ms, -webkit-transform 300ms;
+}
+
+.fade-in-exit {
+  opacity: 1;
+}
+
+.fade-in-exit-active {
+  opacity: 0;
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  transition: opacity 300ms, transform 300ms, -webkit-transform 300ms;
+}
+/*# sourceMappingURL=Modal.css.map */

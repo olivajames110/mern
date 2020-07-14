@@ -1,0 +1,38 @@
+.main-header {
+  position: relative;
+  background-color: #9e123c;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px;
+}
+
+.main-header button {
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+.main-header svg {
+  width: 20px;
+}
+
+@media only screen and (min-width: 600px) {
+  .main-navigation_menu-btn {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main-header .nav-links {
+    display: none;
+  }
+}
+/*# sourceMappingURL=MainHeader.css.map */

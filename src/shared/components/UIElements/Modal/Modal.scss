@@ -1,0 +1,49 @@
+.modal {
+	position: fixed;
+	z-index: 100;
+	background: white;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	min-height: 500px;
+	width: 96%;
+	max-width: 800px;
+	height: 80%;
+	max-height: 570px;
+	.modal__header {
+		width: 100%;
+		padding: 1rem 0.5rem;
+		background: #2a006e;
+		color: white;
+	}
+
+	.modal__header h2 {
+		margin: 0.5rem;
+	}
+
+	.modal__content {
+		padding: 1rem 0.5rem;
+	}
+
+	.modal__footer {
+		padding: 1rem 0.5rem;
+	}
+}
+
+.fade-in-enter {
+	opacity: 0;
+	// transform: scale(0.9);
+}
+.fade-in-enter-active {
+	opacity: 1;
+	// transform: translateX(0);
+	transition: opacity 300ms, transform 300ms;
+}
+.fade-in-exit {
+	opacity: 1;
+}
+.fade-in-exit-active {
+	opacity: 0;
+	// transform: scale(0.9);
+	transition: opacity 300ms, transform 300ms;
+}

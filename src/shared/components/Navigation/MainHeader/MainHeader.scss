@@ -1,0 +1,30 @@
+.main-header {
+	position: relative;
+	background-color: rgb(158, 18, 60);
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px;
+
+	button {
+		background: none;
+		border: none;
+		color: inherit;
+	}
+
+	svg {
+		width: 20px;
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.main-navigation_menu-btn {
+		display: none;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.main-header .nav-links {
+		display: none;
+	}
+}
