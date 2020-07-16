@@ -3,29 +3,26 @@ import { Link } from 'react-router-dom';
 import './Button.css';
 
 const Button = (props) => {
-	if (props.href) {
+	const { href, className, to, exact, type, onClick, disabled } = props;
+
+	if (href) {
 		return (
-			<a className={`button button--${props.class}`} href={props.href}>
+			<a className={`button button--${className}`} href={href}>
 				{props.children}
 			</a>
 		);
 	}
 
-	if (props.to) {
+	if (to) {
 		return (
-			<Link to={props.to} exact={props.exact} className={`button button--${props.class}`}>
+			<Link to={to} exact={exact} className={`button button--${className}`}>
 				{props.children}
 			</Link>
 		);
 	}
 
 	return (
-		<button
-			className={`button button--${props.class}`}
-			type={props.type}
-			onClick={props.onClick}
-			disabled={props.disabled}
-		>
+		<button className={`button button--${className}`} type={type || 'button'} onClick={onClick} disabled={disabled}>
 			{props.children}
 		</button>
 	);

@@ -8,6 +8,7 @@
 
 html {
 	font-family: 'Open Sans', sans-serif;
+	color: #242526;
 }
 
 body {
@@ -51,6 +52,7 @@ code {
 body,
 p {
 	font-family: var(--openSans);
+	color: #242526;
 }
 
 h1 {
@@ -86,4 +88,10 @@ a {
 
 .title {
 	text-align: center;
+}
+
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

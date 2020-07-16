@@ -1,0 +1,137 @@
+.cls-1,
+.cls-2 {
+	// fill: #222;
+}
+
+.cls-1 {
+	stroke: #fff;
+	stroke-miterlimit: 10;
+	stroke-width: 0.75px;
+}
+
+.cls-3 {
+	fill: none;
+}
+
+.map-container {
+	line-height: 2.4em;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+svg {
+	margin-top: 30px;
+}
+
+svg path {
+	transition: 100ms;
+	cursor: pointer;
+}
+
+// svg g:hover path,
+// svg path:hover {
+// 	fill: #9e123c !important;
+// }
+
+.toggle-container {
+	display: flex;
+	width: inherit;
+	justify-content: center;
+	border-radius: 2px;
+	font-family: Limelight, display;
+	font-weight: 400;
+	font-size: 24px;
+	margin: 35px 0;
+}
+.toggle-container input:checked + label {
+	background: #9e123c;
+	color: #ffffff;
+}
+.toggle-container input {
+	display: none;
+}
+.toggle-container label {
+	border: 1px solid #9e123c;
+	cursor: pointer;
+	padding: 10px 25px;
+	transition: background 300ms;
+	color: #9e123c;
+	font-weight: normal;
+}
+.toggle-container .toggle-btn--active {
+	background-color: #9e123c;
+	color: #ffffff;
+}
+
+.result-text-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	font-family: Josefin Sans, sans-serif;
+	font-weight: 400;
+	font-size: 28px;
+}
+
+.selected-country {
+	border-bottom: 1px solid black;
+	min-width: 60px;
+	padding: 0 10px;
+	margin-left: 10px;
+	text-align: center;
+}
+
+.specific-country-container {
+	font-family: Josefin Sans, sans-serif;
+	display: flex;
+	visibility: hidden;
+	margin-top: 30px;
+	justify-content: center;
+	font-style: italic;
+	align-items: center;
+	font-weight: 400;
+	font-size: 18px;
+}
+
+#current-region,
+#current-country {
+	font-family: Josefin Sans, sans-serif;
+	font-weight: bold;
+}
+
+.specific-country select {
+	font-family: Josefin Sans, sans-serif;
+	font-weight: 400;
+	font-size: inherit;
+	font-style: initial;
+	padding: 0 8px;
+	border: none;
+	border-bottom: 1px solid black;
+	width: 100%;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+.send-form {
+	display: none;
+}
+@media only screen and (max-width: 600px) {
+	.result-text-container,
+	.specific-country-container {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.result-text-container span {
+		max-width: 300px;
+	}
+
+	.specific-country-container {
+		margin-top: 45px;
+	}
+
+	.selected-country {
+		min-width: 150px;
+		margin-top: 15px;
+	}
+}

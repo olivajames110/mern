@@ -9,7 +9,7 @@ import './UserItem.css';
 const UserItem = (props) => {
 	return (
 		<li className="user-item">
-			<Link to={`/${props.id}/places`}>
+			<Link to={`/u${props.id}/places`}>
 				<Card className="user-item__content">
 					<div className="user-item__image">
 						<Avatar image={props.image} alt={props.name} width={70} />

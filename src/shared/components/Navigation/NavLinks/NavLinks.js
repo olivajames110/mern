@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import './NavLinks.css';
-
+import { AuthContext } from '../../../context/auth-context';
 // import MainHeader from '../MainHeader/MainHeader';
 
 const NavLinks = (props) => {
-	return (
-		<ul className="nav-links">
-			<li>
-				<NavLink activeClassName="nav-link__active" to="/" exact>
-					ALL USERS
-				</NavLink>
-			</li>
+	const auth = useContext(AuthContext);
+
+	const logoutHandler = () => {
+		auth.logout();
+	};
+	const loggedInLinks = (
+		<React.Fragment>
 			<li>
 				<NavLink activeClassName="nav-link__active" to="/u1/places/">
 					MY PLACES
@@ -23,10 +23,25 @@ const NavLinks = (props) => {
 				</NavLink>
 			</li>
 			<li>
-				<NavLink activeClassName="nav-link__active" to="/auth">
-					AUTHENTICATE
+				<button onClick={auth.logout}>LOGOUT</button>
+			</li>
+		</React.Fragment>
+	);
+	return (
+		<ul className="nav-links">
+			<li>
+				<NavLink activeClassName="nav-link__active" to="/" exact>
+					ALL USERS
 				</NavLink>
 			</li>
+			{auth.isLoggedIn && loggedInLinks}
+			{!auth.isLoggedIn && (
+				<li>
+					<NavLink activeClassName="nav-link__active" to="/auth">
+						LOGIN
+					</NavLink>
+				</li>
+			)}
 		</ul>
 	);
 };

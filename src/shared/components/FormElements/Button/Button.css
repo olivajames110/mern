@@ -1,1 +1,68 @@
-/* No CSS *//*# sourceMappingURL=Button.css.map */
+.button {
+  background-color: #635bff;
+  font: inherit;
+  padding: 0.4rem 1.2rem;
+  border: 1px solid #635bff;
+  border-radius: 4px;
+  background: #635bff;
+  color: white;
+  cursor: pointer;
+  margin-right: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover,
+.button:active {
+  background: #ff4382;
+  border-color: #ff4382;
+}
+
+.button--inverse {
+  background: transparent;
+  color: #635bff;
+}
+
+.button--inverse:hover,
+.button--inverse :active {
+  background: #635bff;
+}
+
+.button--danger {
+  background: #830000;
+  border-color: #830000;
+}
+
+.button--danger:hover,
+.button--danger:active {
+  background: #f34343;
+  border-color: #f34343;
+}
+
+.button:disabled,
+.button:hover:disabled,
+.button:active:disabled {
+  background: #ccc;
+  color: #979797;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button--small {
+  font-size: 0.8rem;
+}
+
+.button--big {
+  font-size: 1.5rem;
+}
+/*# sourceMappingURL=Button.css.map */
