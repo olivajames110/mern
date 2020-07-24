@@ -6,33 +6,35 @@ import Button from '../../../shared/components/FormElements/Button/Button';
 import './PlaceList.css';
 
 const PlaceList = (props) => {
-	if (props.items.length === 0) {
-		return (
-			<div className="place-list-container">
-				<Card>
-					<h2>No places found</h2>
-					<Button to="/places/new">Share Place</Button>
-				</Card>
-			</div>
-		);
-	}
+	const noPlaces = (
+		<div className="place-list-container">
+			<Card>
+				<h2>No places found</h2>
+				<Button to="/places/new">Share Place</Button>
+			</Card>
+		</div>
+	);
 
-	return (
+
+	const places = (
 		<ul className="place-list-container">
 			{props.items.map((place) => (
 				<PlaceItem
 					key={place.id}
 					id={place.id}
-					image={place.imageUrl}
+					image={place.image}
 					title={place.title}
 					description={place.description}
 					address={place.address}
 					creatorId={place.creator}
 					coordinates={place.location}
+					onDelete={props.onDeletePlace}
 				/>
 			))}
 		</ul>
 	);
+
+	return <React.Fragment>{props.items.length === 0 ? noPlaces : places}</React.Fragment>;
 };
 
 export default PlaceList;

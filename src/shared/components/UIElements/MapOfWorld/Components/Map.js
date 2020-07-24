@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Map = (props) => {
+const MapOfWorld = (props) => {
 	const { onClick, hoverColor, backgroundColor } = props;
 	return (
 		<svg id="Ñëîé_1" data-name="Ñëîé 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1672.07 888.56">
@@ -1006,4 +1006,4 @@ const Map = (props) => {
 		</svg>
 	);
 };
-export default Map;
+export default MapOfWorld;

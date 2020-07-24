@@ -7,13 +7,10 @@ import { AuthContext } from '../../../context/auth-context';
 const NavLinks = (props) => {
 	const auth = useContext(AuthContext);
 
-	const logoutHandler = () => {
-		auth.logout();
-	};
 	const loggedInLinks = (
 		<React.Fragment>
 			<li>
-				<NavLink activeClassName="nav-link__active" to="/u1/places/">
+				<NavLink activeClassName="nav-link__active" to={`/${auth.userId}/places/`}>
 					MY PLACES
 				</NavLink>
 			</li>

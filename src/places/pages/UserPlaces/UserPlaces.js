@@ -1,34 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import ErrorModal from '../../../shared/components/UIElements/ErrorModal/ErrorModal';
+import LoadingSpinner from '../../../shared/components/UIElements/LoadingSpinner/LoadingSpinner';
+import { useHttpClient } from '../../../shared/hooks/http-hook';
 import { useParams } from 'react-router-dom';
 import PlaceList from '../../../places/components/PlaceList/PlaceList';
 
-const DUMMY_PLACES = [
-	{
-		id          : 'p1',
-		imageUrl    : 'https://media.timeout.com/images/101705309/image.jpg',
-		title       : 'Empire State Building',
-		description :
-			'Iconic, art deco office tower from 1931 with exhibits & observatories on the 86th & 102nd floors.',
-		address     : '20 W 34th St, New York, NY 10001',
-		creator     : 'u1',
-		location    : { lat: 40.7484405, lng: -73.9878531 }
-	},
-	{
-		id          : 'p2',
-		imageUrl    : 'https://media.timeout.com/images/101705309/image.jpg',
-		title       : 'Empire State ',
-		description :
-			'Iconic, art deco office tower from 1931 with exhibits & observatories on the 86th & 102nd floors.',
-		address     : '20 W 34th St, New York, NY 10001',
-		creator     : 'u2',
-		location    : { lat: 40.7484405, lng: -73.9878531 }
-	}
-];
-
 const UserPlaces = () => {
+	const [ loadedPlaces, setLoadedPlaces ] = useState([  ]);
+	const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
 	const userId = useParams().userId;
-	const loadedPlaces = DUMMY_PLACES.filter((place) => place.creator === userId);
-	return <PlaceList items={loadedPlaces} />;
+
+	useEffect(
+		() => {
+			const fetchPlaces = async () => {
+				try {
+					const responseData = await sendRequest(`${process.env.REACT_APP_BACKEND_URL}/places/user/${userId}`);
+					setLoadedPlaces(responseData.places);
+				} catch (err) {}
+			};
+			fetchPlaces();
+		},
+		[ sendRequest, userId ]
+	);
+
+	const placeDeletedHandler = (deletedPlaceId) => {
+		setLoadedPlaces((prevPlaces) => prevPlaces.filter((place) => place.id !== deletedPlaceId));
+	};
+
+	return (
+		<React.Fragment>
+			
+			{isLoading && (
+				<div className="center">
+					<LoadingSpinner />
+				</div>
+			)}
+			{!isLoading && loadedPlaces && <PlaceList onDeletePlace={placeDeletedHandler} items={loadedPlaces} />}
+		</React.Fragment>
+	);
 };
 
 export default UserPlaces;

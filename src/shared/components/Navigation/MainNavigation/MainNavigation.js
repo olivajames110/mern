@@ -30,7 +30,7 @@ const MainNavigation = (props) => {
 
 			<MainHeader>
 				<h1 className="main-navigation_title">
-					<Link>Places</Link>
+					<Link to="/">Places</Link>
 				</h1>
 				<nav>
 					<NavLinks />

@@ -1,28 +1,23 @@
-import React, { useState, useCallback } from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { AuthContext } from './shared/context/auth-context';
+import { useAuth } from './shared/hooks/auth-hook';
 
-import { AuthContect, AuthContext } from './shared/context/auth-context';
-import Users from './user/pages/Users';
-import Auth from './user/pages/Auth';
-import UserPlaces from './places/pages/UserPlaces/UserPlaces';
-import NewPlace from './places/pages/NewPlace/NewPlace';
 import MainNavigation from './shared/components/Navigation/MainNavigation/MainNavigation';
-import UpdatePlace from './places/pages/UpdatePlace/UpdatePlace';
+import Users from './user/pages/Users';
+import LoadingSpinner from './shared/components/UIElements/LoadingSpinner/LoadingSpinner';
+
+const Auth = React.lazy(() => import('./user/pages/Auth'));
+const UserPlaces = React.lazy(() => import('./places/pages/UserPlaces/UserPlaces'));
+const NewPlace = React.lazy(() => import('./places/pages/NewPlace/NewPlace'));
+const UpdatePlace = React.lazy(() => import('./places/pages/UpdatePlace/UpdatePlace'));
 
 const App = () => {
-	const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-
-	const login = useCallback(() => {
-		setIsLoggedIn(true);
-	}, []);
-
-	const logout = useCallback(() => {
-		setIsLoggedIn(false);
-	}, []);
+	let { token, login, logout, userId } = useAuth();
 
 	let routes;
 
-	if (isLoggedIn) {
+	if (token) {
 		routes = (
 			<Switch>
 				<Route path="/" exact>
@@ -57,11 +52,27 @@ const App = () => {
 		);
 	}
 
+	const loadingSpinner = (
+		<div className="center">
+			<LoadingSpinner />
+		</div>
+	);
+
 	return (
-		<AuthContext.Provider value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}>
+		<AuthContext.Provider
+			value={{
+				isLoggedIn : !!token,
+				token      : token,
+				userId     : userId,
+				login      : login,
+				logout     : logout
+			}}
+		>
 			<Router>
 				<MainNavigation />
-				<main>{routes}</main>
+				<main>
+					<Suspense fallback={loadingSpinner}>{routes}</Suspense>
+				</main>
 			</Router>
 		</AuthContext.Provider>
 	);
